@@ -1,4 +1,4 @@
 etudev-rails-server
 ===================
 
-recipe for etudev rails server configuration
+Chef cookbok with recipes for etudev rails server configuration
