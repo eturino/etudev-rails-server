@@ -1,9 +1,11 @@
 maintainer        "Eduardo Turiño"
 maintainer_email  "eturino@gmail.com"
 description       "Configures server for rails applications"
-version           "0.1"
+version           "0.1.1"
 
-recipe "etudev-rails-server", "run all recipes."
+recipe "etudev-rails-server", "run all standard recipes."
+recipe "etudev-rails-server::vagrant", "run all standard recipes but prepending some custom config for vagrant"
+
 recipe "etudev-rails-server::apt", "apt cookbook"
 recipe "etudev-rails-server::time", "setup timezone"
 recipe "etudev-rails-server::editor", "setup vim"
