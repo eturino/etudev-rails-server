@@ -1,10 +1,10 @@
-maintainer        "Eduardo Turiño"
-maintainer_email  "eturino@gmail.com"
-description       "Configures server for rails applications"
-version           "0.1.1"
+maintainer "Eduardo Turiño"
+maintainer_email "eturino@gmail.com"
+description "Configures server for rails applications"
+version "0.1.2"
 
 recipe "etudev-rails-server", "run all standard recipes."
-recipe "etudev-rails-server::vagrant", "run all standard recipes but prepending some custom config for vagrant"
+recipe "etudev-rails-server::vagrant", "prepare atributes with some custom config for vagrant, to be used before the other recipes in a Vagrant server"
 
 recipe "etudev-rails-server::apt", "apt cookbook"
 recipe "etudev-rails-server::time", "setup timezone"
@@ -18,7 +18,6 @@ recipe "etudev-rails-server::db", "install databases (mysql and sqlite)"
 recipe "etudev-rails-server::nginx", "install nginx"
 recipe "etudev-rails-server::monit", "install monit"
 recipe "etudev-rails-server::bashit", "setup custom bashit"
-
 
 
 #basic server
@@ -37,10 +36,18 @@ depends "ssh_known_hosts"
 depends "nodejs"
 
 #ruby
-depends "rbenv"
+#depends "ruby_build"
+#depends "rbenv" # :git => 'git://github.com/fnichol/chef-rbenv.git'
 
 #appbox
-depends "appbox"
+#depends "appbox"
+#depends "apt"
+depends "sudo"
+depends "user"
+depends "curl"
+depends "htop"
+depends "git"
+depends "tmux"
 
 #db
 depends "databox" # to install mysql

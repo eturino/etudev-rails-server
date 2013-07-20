@@ -17,12 +17,12 @@ include_recipe "etudev-rails-server::libs"
 #6. nodejs
 include_recipe "etudev-rails-server::nodejs"
 
-#7. ruby
-include_recipe "etudev-rails-server::ruby"
 
-#8. appbox
+#7. appbox
 include_recipe "etudev-rails-server::appbox"
 
+#8. ruby
+include_recipe "etudev-rails-server::ruby"
 
 #9. database
 include_recipe "etudev-rails-server::db"
