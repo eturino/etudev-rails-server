@@ -1,4 +1,3 @@
-include_recipe "etudev-rails-server::appbox"
 
 users = [
     node["etudev-rails-server"]["apps_user"],
@@ -10,7 +9,16 @@ users = [
 repository = "git://github.com/eturino/bash-it"
 
 users.each do |u|
-  home_folder = "/home/#{u}"
+
+  if !node['etc'].nil? && !node['etc']['passwd'].nil? && !node['etc']['passwd'][u].nil? && !node['etc']['passwd'][u]['dir'].nil?
+    home_dir = node['etc']['passwd'][u]['dir']
+  elsif !node['rbenv']['user_home_root'].nil?
+    home_dir = ::File.join(node['rbenv']['user_home_root'], u)
+  else
+    home_dir = ::File.join(node['user']['home_root'], u)
+  end
+
+  home_folder = home_dir
   bashit_folder = "#{home_folder}/.bash_it"
 
   git bashit_folder do

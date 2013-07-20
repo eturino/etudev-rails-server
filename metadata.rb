@@ -1,7 +1,7 @@
 maintainer "Eduardo Turiño"
 maintainer_email "eturino@gmail.com"
 description "Configures server for rails applications"
-version "0.1.4"
+version "0.1.5"
 
 recipe "etudev-rails-server", "run all standard recipes."
 recipe "etudev-rails-server::vagrant", "prepare atributes with some custom config for vagrant, to be used before the other recipes in a Vagrant server"
