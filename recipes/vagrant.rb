@@ -4,6 +4,7 @@ node.default["databox"]["db_root_password"] = "root"
 
 node.default["authorization"]["sudo"]["users"] = ["vagrant"]
 
+node.default["etudev-rails-server"]["apps_dir"] = "/home/vagrant"
 node.default["etudev-rails-server"]["apps_user"] = "vagrant"
 node.default["etudev-rails-server"]["admin_user"] = "vagrant"
 node.default["etudev-rails-server"]["deploy_user"] = "vagrant"

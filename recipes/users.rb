@@ -1,4 +1,4 @@
-# similar to etudev-rails-server cookbook
+# similar to appbox cookbook
 #
 #include_recipe "etudev-rails-server::default"
 
@@ -18,24 +18,21 @@ allusers = [
     node["etudev-rails-server"]["admin_user"]
 ].uniq
 
-# check for special case when all are the same user
-if allusers.length == 1
-
-  user_account node["etudev-rails-server"]["deploy_user"] do
-    comment "apps runner deployer and sysadmin"
-    ssh_keys node["etudev-rails-server"]["deploy_keys"].concat(node["etudev-rails-server"]["admin_keys"])
-  end
-
-else
+# for now, there is a problem if we try to change the vagrant ssh keys, so we'll skip it
+unless node["etudev-rails-server"]["apps_user"] == 'vagrant'
   user_account node["etudev-rails-server"]["apps_user"] do
     comment "apps runner"
   end
+end
 
+unless node["etudev-rails-server"]["deploy_user"] == 'vagrant'
   user_account node["etudev-rails-server"]["deploy_user"] do
     comment "deployer"
     ssh_keys node["etudev-rails-server"]["deploy_keys"]
   end
+end
 
+unless node["etudev-rails-server"]["admin_user"] == 'vagrant'
   user_account node["etudev-rails-server"]["admin_user"] do
     comment "sysadmin"
     ssh_keys node["etudev-rails-server"]["admin_keys"]

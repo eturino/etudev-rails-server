@@ -18,8 +18,8 @@ include_recipe "etudev-rails-server::libs"
 include_recipe "etudev-rails-server::nodejs"
 
 
-#7. appbox
-include_recipe "etudev-rails-server::appbox"
+#7. users
+include_recipe "etudev-rails-server::users"
 
 #8. ruby
 include_recipe "etudev-rails-server::ruby"
