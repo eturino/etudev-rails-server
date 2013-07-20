@@ -1,13 +1,11 @@
 include_recipe "etudev-rails-server::appbox"
 
 users = [
-    node["appbox"]["apps_user"],
-    node["appbox"]["admin_user"],
-    node["appbox"]["deploy_user"]
-]
-users.concat node["etudev-rails-server"]["bashit_users"]
+    node["etudev-rails-server"]["apps_user"],
+    node["etudev-rails-server"]["admin_user"],
+    node["etudev-rails-server"]["deploy_user"]
+].concat(node["etudev-rails-server"]["bashit_users"]).uniq
 
-users.uniq!
 
 repository = "git://github.com/eturino/bash-it"
 
