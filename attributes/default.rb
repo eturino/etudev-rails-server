@@ -13,11 +13,10 @@ default['etudev-rails-server']['apps_user'] = "apps"
 
 # RUBY
 default['etudev-rails-server']['ruby']['versions'] = %w(2.0.0-p247 1.9.3-p392)
-default['etudev-rails-server']['ruby']['global_version'] = '1.9.3-p392'
+default['etudev-rails-server']['ruby']['global_version'] = '2.0.0-p247'
 default['etudev-rails-server']['ruby']['users'] = []
 default['etudev-rails-server']['ruby']['gems'] = [
     {'name' => 'bundler'},
-    {'name' => 'zeus', 'version' => '0.13.4.pre2' },
     {'name' => 'zeus', 'version' => '0.13.4.pre2' },
 ]
 
